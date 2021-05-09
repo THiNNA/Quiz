@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\BookPhoneController;
+use App\Http\Controllers\CalChangeController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+
+Route::get('/manage_book', [BookPhoneController::class, 'index']);
+Route::post('/add_book', [BookPhoneController::class, 'create'])->name('book.create');
+Route::get('book_phone/destroy/{id}', [BookPhoneController::class, 'destroy'])->name('book_phone.destroy');
+Route::PATCH('edit_book/{id}', [BookPhoneController::class, 'update'])->name('book_phone.update');
+
+Route::get('/cal_change', [CalChangeController::class, 'index']);
