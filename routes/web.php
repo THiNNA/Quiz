@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookPhoneController;
 use App\Http\Controllers\CalChangeController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
@@ -28,3 +29,5 @@ Route::get('book_phone/destroy/{id}', [BookPhoneController::class, 'destroy'])->
 Route::PATCH('edit_book/{id}', [BookPhoneController::class, 'update'])->name('book_phone.update');
 
 Route::get('/cal_change', [CalChangeController::class, 'index']);
+Route::post('/cal_price', [CalChangeController::class, 'store']);
+
